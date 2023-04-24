@@ -30,13 +30,13 @@ class MyApp extends StatelessWidget {
 
 
 
-/// Dharitya chuutiya hai  
-/// /// Dharitya chuutiya hai  
-/// /// Dharitya chuutiya hai  
-/// /// Dharitya chuutiya hai  
-/// /// Dharitya chuutiya hai  
-/// /// Dharitya chuutiya hai  
-/// Dharitya chuutiya hai  
+/// Dhaniya chuutiya hai  
+/// /// Dhaniya chuutiya hai  
+/// /// Dhaniya chuutiya hai  
+/// /// Dhaniya chuutiya hai  
+/// /// Dhaniya chuutiya hai  
+/// /// Dhaniya chuutiya hai  
+/// Dhaniya chuutiya hai  
 
 
 
