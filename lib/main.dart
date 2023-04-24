@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        // home: const ,
+        home: Divyam()
       ),
     );
   
@@ -37,18 +37,18 @@ class MyApp extends StatelessWidget {
 /// /// Dhaniya chuutiya hai  
 /// /// Dhaniya chuutiya hai  
 /// /// Dhaniya chuutiya hai  
-/// Dhaniya chuutiya hai  
+/// Dhaniya chuutiya hai
 
 
 
-class Main extends StatefulWidget {
-  const Main({ Key? key }) : super(key: key);
+class Divyam extends StatefulWidget {
+  const Divyam({ Key? key }) : super(key: key);
 
   @override
-  _MainState createState() => _MainState();
+  _DivyamState createState() => _DivyamState();
 }
 
-class _MainState extends State<Main> {
+class _DivyamState extends State<Divyam> {
   @override
   Widget build(BuildContext context) {
 
