@@ -14,35 +14,32 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) =>ThemeProvider(),),
-      ],
-        child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+        ChangeNotifierProvider(
+          create: (context) => ThemeProvider(),
         ),
-        home: Divyam()
-      ),
+      ],
+      child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: Divyam()),
     );
-  
   }
 }
 
 // harshit bsdwalaa
 
-
-/// Dhaniya chuutiya hai  
-/// /// Dhaniya chuutiya hai  
-/// /// Dhaniya chuutiya hai  
-/// /// Dhaniya chuutiya hai  
-/// /// Dhaniya chuutiya hai  
-/// /// Dhaniya chuutiya hai  
+/// Dhaniya chuutiya hai
+/// /// Dhaniya chuutiya hai
+/// /// Dhaniya chuutiya hai
+/// /// Dhaniya chuutiya hai
+/// /// Dhaniya chuutiya hai
+/// /// Dhaniya chuutiya hai
 /// Dhaniya chuutiya hai
 
-
-
 class Divyam extends StatefulWidget {
-  const Divyam({ Key? key }) : super(key: key);
+  const Divyam({Key? key}) : super(key: key);
 
   @override
   _DivyamState createState() => _DivyamState();
@@ -51,12 +48,12 @@ class Divyam extends StatefulWidget {
 class _DivyamState extends State<Divyam> {
   @override
   Widget build(BuildContext context) {
-
     final themeProvoder = Provider.of<ThemeProvider>(context);
 
-
     return Container(
-       color: themeProvoder.getPrimaryColor,
+      color: themeProvoder.getPrimaryColor,
     );
   }
 }
+
+// kkfdhfak
