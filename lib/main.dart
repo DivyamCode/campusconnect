@@ -1,5 +1,9 @@
+import 'package:campusconnect/screen/Welcome.dart';
+import 'package:campusconnect/screen/onboarding.dart';
+import 'package:campusconnect/screen/sign.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+// import 'package:screen/screen.dart';
 import 'package:campusconnect/provider/themeprovider.dart';
 
 void main() {
@@ -19,24 +23,19 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: Divyam()),
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: Divyam(),
+        routes: {"AppOpenroute": (context) => AppOpen(),
+          "Welcome":(context) => dhairya(),
+          "sign":(context)=> harshit(),
+        },
+      ),
     );
   }
 }
-
-// harshit bsdwalaa
-
-/// Dhaniya chuutiya hai
-/// /// Dhaniya chuutiya hai
-/// /// Dhaniya chuutiya hai
-/// /// Dhaniya chuutiya hai
-/// /// Dhaniya chuutiya hai
-/// /// Dhaniya chuutiya hai
-/// Dhaniya chuutiya hai
 
 class Divyam extends StatefulWidget {
   const Divyam({Key? key}) : super(key: key);
@@ -50,7 +49,15 @@ class _DivyamState extends State<Divyam> {
   Widget build(BuildContext context) {
     final themeProvoder = Provider.of<ThemeProvider>(context);
 
-    return Container(
+    return Material(
+      child: Center(
+          child: InkWell(
+        child: Text("AppOpen"),
+        onTap: () {
+          Navigator.pushNamed(context, "AppOpenroute");
+        },
+      ),
+      ),
       color: themeProvoder.getPrimaryColor,
     );
   }
