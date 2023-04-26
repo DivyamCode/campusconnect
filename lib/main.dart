@@ -1,3 +1,5 @@
+import 'package:campusconnect/screen/rollno.dart';
+import 'package:campusconnect/screen/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:campusconnect/provider/themeprovider.dart';
@@ -19,24 +21,22 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: Divyam()),
+          home: Divyam(),
+          routes: {
+            "signup":(context) => Signup(),
+            "rollno":(context) => Rollno(),
+          },
+          ),
     );
   }
 }
 
-// harshit bsdwalaa
 
-/// Dhaniya chuutiya hai
-/// /// Dhaniya chuutiya hai
-/// /// Dhaniya chuutiya hai
-/// /// Dhaniya chuutiya hai
-/// /// Dhaniya chuutiya hai
-/// /// Dhaniya chuutiya hai
-/// Dhaniya chuutiya hai
 
 class Divyam extends StatefulWidget {
   const Divyam({Key? key}) : super(key: key);
@@ -50,10 +50,27 @@ class _DivyamState extends State<Divyam> {
   Widget build(BuildContext context) {
     final themeProvoder = Provider.of<ThemeProvider>(context);
 
-    return Container(
-      color: themeProvoder.getPrimaryColor,
+    return Material(
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed("signup");
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                color: themeProvoder.getPrimaryColor,
+                border: Border.all(color: Colors.black26),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Text("Signup"),
+            ),
+          )],
+        ),
+        // color: themeProvoder.getPrimaryColor,
+      ),
     );
   }
 }
 
-// kkfdhfak
