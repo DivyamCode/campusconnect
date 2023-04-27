@@ -1,4 +1,9 @@
+import 'package:campusconnect/app/common/routes/pages.dart';
+import 'package:campusconnect/app/common/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:campusconnect/provider/themeprovider.dart';
 
@@ -12,51 +17,28 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) =>ThemeProvider(),),
-      ],
-        child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: Divyam()
-      ),
-    );
+
+    return ScreenUtilInit(
+      designSize: const Size(413,896,),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MultiProvider(
+            providers: [
+              ChangeNotifierProvider(create: (context) =>ThemeProvider(),),
+            ],
+            child: GetMaterialApp(
+              debugShowCheckedModeBanner:false,
+              title: 'Flutter Demo',
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+              ),
+              initialRoute: AppRoutes.initial,
+              getPages: AppPages.routes,
+          ),
+       );
+    },);
   
   }
 }
 
-// harshit bsdwalaa
-
-
-/// Dhaniya chuutiya hai  
-/// /// Dhaniya chuutiya hai  
-/// /// Dhaniya chuutiya hai  
-/// /// Dhaniya chuutiya hai  
-/// /// Dhaniya chuutiya hai  
-/// /// Dhaniya chuutiya hai  
-/// Dhaniya chuutiya hai
-
-
-
-class Divyam extends StatefulWidget {
-  const Divyam({ Key? key }) : super(key: key);
-
-  @override
-  _DivyamState createState() => _DivyamState();
-}
-
-class _DivyamState extends State<Divyam> {
-  @override
-  Widget build(BuildContext context) {
-
-    final themeProvoder = Provider.of<ThemeProvider>(context);
-
-
-    return Container(
-       color: themeProvoder.getPrimaryColor,
-    );
-  }
-}
