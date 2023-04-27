@@ -10,13 +10,13 @@ class harshit extends StatefulWidget {
 }
 
 class _harshitState extends State<harshit> {
-  void initState() {
-     Timer(Duration(seconds: 4), () {
-      Navigator.of(context).pushNamed("signin");
-    });
+  // void initState() {
+  //    Timer(Duration(seconds: 4), () {
+  //     Navigator.of(context).pushNamed("signin");
+  //   });
     // TODO: implement initState
-    super.initState();
-  }
+    // super.initState();
+  // }
   @override
   Widget build(BuildContext context) {
     final themeprovider = Provider.of<ThemeProvider>(context);
