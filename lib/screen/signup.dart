@@ -34,9 +34,10 @@ class _SignupState extends State<Signup> {
               children: [
                 const SizedBox(height: 20.0),
                 const Text(
-                  "Signup",
+                  "Sign Up",
                   style: TextStyle(
-                    fontSize: 30,
+                    fontFamily: 'Roboto',
+                    fontSize: 26,
                     color: Colors.black26,
                   ),
                 ),
@@ -44,7 +45,8 @@ class _SignupState extends State<Signup> {
                 const Text(
                   "Enter your credentials to continue",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontFamily: "Poppins",
+                    fontSize: 16,
                     color: Colors.black87,
                   ),
                 ),
@@ -86,15 +88,17 @@ class _SignupState extends State<Signup> {
                 const Text(
                   "By continuing you agree to our Terms of Service",
                   style: TextStyle(
-                    fontSize: 10,
+                    fontFamily: "Poppins",
+                    fontSize: 14,
                     color: Colors.black87,
                   ),
                 ),
                 const SizedBox(height: 5.0),
                 const Text(
-                  "and Privacy Policy",
+                  "and Privacy Policy.",
                   style: TextStyle(
-                    fontSize: 10,
+                    fontFamily: "Poppins",
+                    fontSize: 14,
                     color: Colors.black87,
                   ),
                 ),
@@ -103,7 +107,7 @@ class _SignupState extends State<Signup> {
                   function: () {
                     Navigator.of(context).pushNamed("rollno");
                   },
-                  labelText: "signup",
+                  labelText: "Sign up",
                 ),
                 
               ],

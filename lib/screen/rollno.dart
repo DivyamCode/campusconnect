@@ -39,8 +39,9 @@ class _RollnoState extends State<Rollno> {
               Text(
                 "Enter your University Roll no",
                 style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black87,
+                    fontFamily: 'Roboto',
+                    fontSize: 26,
+                    color: Colors.black26,
                   ),
                 ),
                 const SizedBox(height: 20.0),
