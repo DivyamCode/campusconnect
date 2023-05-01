@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'dart:io';
 import 'package:campusconnect/provider/themeprovider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,17 +12,18 @@ class harshit extends StatefulWidget {
 }
 
 class _harshitState extends State<harshit> {
-  // void initState() {
-  //    Timer(Duration(seconds: 4), () {
-  //     Navigator.of(context).pushNamed("signin");
-  //   });
+  void initState() {
+     Timer(Duration(seconds: 4), () {
+      Navigator.of(context).pushNamed("signin");
+    });
     // TODO: implement initState
-    // super.initState();
-  // }
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     final themeprovider = Provider.of<ThemeProvider>(context);
     return Material(
+      
       child: Stack(children: [
         Container(
           // padding: EdgeInsets.only(top:),
@@ -39,7 +42,7 @@ class _harshitState extends State<harshit> {
         ),
         Container(
             
-            padding: EdgeInsets.only(top: 450,left: 50,right: 20,bottom: 30),
+            padding: EdgeInsets.only(top: 350,left: 50,right: 20,bottom: 10),
             child: Column(
               children: [
                 

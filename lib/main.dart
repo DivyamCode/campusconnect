@@ -1,11 +1,14 @@
 import 'package:campusconnect/screen/Welcome.dart';
+// import 'package:campusconnect/screen/botton.dart';
+import 'package:campusconnect/screen/grid.dart';
 import 'package:campusconnect/screen/onboarding.dart';
 import 'package:campusconnect/screen/rollno.dart';
 import 'package:campusconnect/screen/sign.dart';
 import 'package:campusconnect/screen/signup.dart';
+import 'package:campusconnect/screen/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// import 'package:screen/screen.dart';
+//  import 'package:screen/screen.dart';
 import 'package:campusconnect/provider/themeprovider.dart';
 
 void main() {
@@ -37,6 +40,12 @@ class MyApp extends StatelessWidget {
           "sign": (context) => harshit(),
           "signup": (context) => Signup(),
           "rollno": (context) => Rollno(),
+          "signin":(context) => aman(),
+          // "botton":(context) => BottomNav(),
+          "grid":(context) => MyWidget(),
+
+            
+          
         },
       ),
     );
@@ -57,7 +66,7 @@ class _DivyamState extends State<Divyam> {
 
     return Material(
       child: Center(
-        child:SafeArea(
+        child: SafeArea(
           child: Column(
             children: [
               InkWell(
@@ -84,6 +93,7 @@ class _DivyamState extends State<Divyam> {
         ),
       ),
       color: themeProvoder.getPrimaryColor,
+      
     );
   }
 }
