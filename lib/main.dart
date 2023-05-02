@@ -1,6 +1,4 @@
 import 'package:campusconnect/screen/Welcome.dart';
-// import 'package:campusconnect/screen/botton.dart';
-import 'package:campusconnect/screen/grid.dart';
 import 'package:campusconnect/screen/onboarding.dart';
 import 'package:campusconnect/screen/rollno.dart';
 import 'package:campusconnect/screen/sign.dart';
@@ -18,7 +16,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  // This widget is the m, root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -40,12 +38,6 @@ class MyApp extends StatelessWidget {
           "sign": (context) => harshit(),
           "signup": (context) => Signup(),
           "rollno": (context) => Rollno(),
-          "signin":(context) => aman(),
-          // "botton":(context) => BottomNav(),
-          "grid":(context) => MyWidget(),
-
-            
-          
         },
       ),
     );
