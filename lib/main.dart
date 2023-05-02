@@ -1,4 +1,5 @@
 import 'package:campusconnect/screen/Welcome.dart';
+import 'package:campusconnect/screen/marketPlace.dart';
 import 'package:campusconnect/screen/onboarding.dart';
 import 'package:campusconnect/screen/rollno.dart';
 import 'package:campusconnect/screen/sign.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
           "sign": (context) => harshit(),
           "signup": (context) => Signup(),
           "rollno": (context) => Rollno(),
+          "marketPlace":(context) => Home(),
         },
       ),
     );

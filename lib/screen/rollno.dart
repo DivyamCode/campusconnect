@@ -59,6 +59,7 @@ class _RollnoState extends State<Rollno> {
                     InkWell(
                       onTap: () {
                         // handle button press
+                        Navigator.of(context).pushNamed("marketPlace");
                       },
                       child: Container(
                         width: 56,
