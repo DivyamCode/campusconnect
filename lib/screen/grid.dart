@@ -21,7 +21,7 @@ class _MyWidgetState extends State<MyWidget> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CampusConnect.com'),
+        title: const Text('Choose  a comnmunity'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
