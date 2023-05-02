@@ -15,6 +15,7 @@ class AppPages {
         page:() =>OnBoardingView() ,
         binding: OnBoardingBinding()
       ),
+      
    ];
 
 }

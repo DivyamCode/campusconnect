@@ -66,5 +66,4 @@ class OnBoardingView extends GetView<OnboardingController> {
       ),
     );
   }
-
 }
