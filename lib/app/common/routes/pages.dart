@@ -1,5 +1,7 @@
 import 'package:campusconnect/app/common/routes/routes.dart';
+import 'package:campusconnect/app/pages/login/index.dart';
 import 'package:campusconnect/app/pages/onboarding/index.dart';
+import 'package:campusconnect/app/pages/signup/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +16,16 @@ class AppPages {
         name:AppPages.initial, 
         page:() =>OnBoardingView() ,
         binding: OnBoardingBinding()
+      ),
+      GetPage(
+        name:AppRoutes.signup, 
+        page:() =>SignupView(),
+        binding: SignupBinding()
+      ),
+      GetPage(
+        name:AppRoutes.login, 
+        page:() =>LoginView(),
+        binding: LoginBinding()
       ),
       
    ];

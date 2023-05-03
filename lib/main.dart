@@ -1,5 +1,6 @@
 import 'package:campusconnect/app/common/routes/pages.dart';
 import 'package:campusconnect/app/common/routes/routes.dart';
+import 'package:campusconnect/provider/refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         return MultiProvider(
             providers: [
               ChangeNotifierProvider(create: (context) =>ThemeProvider(),),
+              ChangeNotifierProvider(create: (context) => RefreshProvider(),)
             ],
             child: GetMaterialApp(
               debugShowCheckedModeBanner:false,
