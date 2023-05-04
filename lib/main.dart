@@ -1,12 +1,12 @@
 import 'package:campusconnect/app/common/routes/pages.dart';
 import 'package:campusconnect/app/common/routes/routes.dart';
-import 'package:campusconnect/provider/refresh.dart';
+import 'package:campusconnect/app/provider/refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:provider/provider.dart';
-import 'package:campusconnect/provider/themeprovider.dart';
+import 'package:campusconnect/app/provider/themeprovider.dart';
 
 void main() {
   runApp(const MyApp());

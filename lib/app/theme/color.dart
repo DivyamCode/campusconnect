@@ -8,5 +8,8 @@ class AppColor {
     List<Color> childcolor = [Colors.white, Colors.white];
     List<Color> titlecolor = [Colors.blue, Colors.blue];
 
+    List<Color> labelInputGrey = [Color.fromRGBO(124, 124, 124, 1)];
+
+
 
 }

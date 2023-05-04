@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 
 class ThemeProvider with ChangeNotifier {
 
-    int get getColorIndex => 1;
+    int get getColorIndex =>  0  ;
 
-    AppColor color = AppColor();
-
+    AppColor color =  AppColor() ;
 
     Color get getPrimaryColor => color.primaryColor[getColorIndex];
     Color get getSecondaryColor => color.secondaryColor[getColorIndex];
@@ -14,5 +13,7 @@ class ThemeProvider with ChangeNotifier {
     Color get getTypeColor => color.typecolor[getColorIndex];
     Color get getchildcolor => color.childcolor[getColorIndex];
     Color get gettitlecolor => color.titlecolor[getColorIndex];
+    Color get getlabelInputColor =>color.labelInputGrey[getColorIndex];
+
 
 }
