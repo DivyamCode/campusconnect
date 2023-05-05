@@ -25,8 +25,8 @@ class ThemeProvider with ChangeNotifier {
   List<Color> _typecolor = [Colors.green.shade400, Colors.green];
   List<Color> _childcolor = [Colors.white, Colors.white];
   List<Color> _titlecolor = [Colors.blue, Colors.blue];
-  List<Color> _backgroundcolor = [Colors.white, Colors.black];
-  List<Color> _iconcolor = [Colors.white, Colors.black];
+  List<Color> _backgroundcolor = [Colors.white, Colors.blue];
+  List<Color> _iconcolor = [Colors.white, Colors.blue];
 
   Color get getPrimaryColor => _primaryColor[getColorIndex()];
   Color get getSecondaryColor => _secondaryColor[getColorIndex()];
