@@ -15,6 +15,10 @@ class ThemeProvider with ChangeNotifier {
     }
   }
 
+  void init(){
+
+  }
+
   List<Color> _primaryColor = [Colors.blue, Colors.green];
   List<Color> _secondaryColor = [Colors.black, Colors.white];
   List<Color> _textcolor = [Colors.green.shade400, Colors.green];
@@ -22,6 +26,7 @@ class ThemeProvider with ChangeNotifier {
   List<Color> _childcolor = [Colors.white, Colors.white];
   List<Color> _titlecolor = [Colors.blue, Colors.blue];
   List<Color> _backgroundcolor = [Colors.white, Colors.black];
+  List<Color> _iconcolor = [Colors.white, Colors.black];
 
   Color get getPrimaryColor => _primaryColor[getColorIndex()];
   Color get getSecondaryColor => _secondaryColor[getColorIndex()];
@@ -30,26 +35,5 @@ class ThemeProvider with ChangeNotifier {
   Color get getchildcolor => _childcolor[getColorIndex()];
   Color get gettitlecolor => _titlecolor[getColorIndex()];
   Color get getbackgroundcolor => _backgroundcolor[getColorIndex()];
-
-  Future<void> changeTheme(CustomThememode thememode) async {
-    SharedPreference pref = SharedPreference();
-    await pref.setString(data: '${thememode}', key: 'thememode');
-    _themeMode = thememode;
-    notifyListeners();
-  }
-
-  void init() async {
-    SharedPreference pref = SharedPreference();
-
-    final valTheme = await pref.getString(key: 'thememode');
-    if (valTheme == null || valTheme == "${CustomThememode.light}") {
-      _themeMode = CustomThememode.light;
-      pref.setString(data: '${CustomThememode.light}', key: 'thememode');
-    } else {
-      _themeMode = CustomThememode.dark;
-    }
-
-    notifyListeners();
-
-  }
+  Color get geticoncolor => _iconcolor[getColorIndex()];
 }

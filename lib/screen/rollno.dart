@@ -1,6 +1,12 @@
+
+import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/themeprovider.dart';
 
 
 
@@ -16,6 +22,7 @@ class _RollnoState extends State<Rollno> {
 
   @override
   Widget build(BuildContext context) {
+    final themeprovider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -31,7 +38,8 @@ class _RollnoState extends State<Rollno> {
                 },
                 leading: Icon(
                   Icons.arrow_back_ios,
-                  color: Colors.black87,
+                  color: themeprovider.geticoncolor,
+                  // color: Colors.black87,
                   weight: 10.0,
                 ),
               ),
