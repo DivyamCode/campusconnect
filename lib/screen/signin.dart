@@ -60,7 +60,7 @@ class _amanState extends State<aman> {
                 TextField(
                   // controller: usernameController,
                   decoration: InputDecoration(
-                    labelText: "Pass:",
+                    labelText: "Password:",
                   ),
                 ),
                 const SizedBox(height: 20.0),

@@ -42,7 +42,7 @@ class _harshitState extends State<harshit> {
         ),
         Container(
             
-            padding: EdgeInsets.only(top: 350,left: 50,right: 20,bottom: 10),
+            padding: EdgeInsets.only(top: 350,left: 50,right: 20,bottom: 80),
             child: Column(
               children: [
                 
@@ -51,6 +51,7 @@ class _harshitState extends State<harshit> {
                   "Your id has been verfied",
                   style: TextStyle(
                     color: themeprovider.getSecondaryColor,
+                    fontFamily: 'Roboto',
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
                   ),
@@ -76,8 +77,8 @@ class _harshitState extends State<harshit> {
                   child: Text(
                     "Track Order",
                     style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black87,
+                      fontSize: 15,
+                      color: themeprovider.geticoncolor,
                     ),
                   ),
                 ),

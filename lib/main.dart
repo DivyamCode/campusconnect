@@ -1,11 +1,16 @@
 import 'package:campusconnect/screen/Welcome.dart';
+import 'package:campusconnect/screen/grid.dart';
 import 'package:campusconnect/screen/onboarding.dart';
 import 'package:campusconnect/screen/rollno.dart';
 import 'package:campusconnect/screen/sign.dart';
 import 'package:campusconnect/screen/signup.dart';
 import 'package:campusconnect/screen/signin.dart';
+import 'package:campusconnect/screen/marketPlace.dart';
+import 'package:campusconnect/screen/preveiw.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:campusconnect/screen/post.dart';
+import 'package:campusconnect/screen/grid.dart';
 //  import 'package:screen/screen.dart';
 import 'package:campusconnect/provider/themeprovider.dart';
 
@@ -36,8 +41,13 @@ class MyApp extends StatelessWidget {
           "AppOpenroute": (context) => AppOpen(),
           "Welcome": (context) => dhairya(),
           "sign": (context) => harshit(),
+          "signin": (context) => aman(),
           "signup": (context) => Signup(),
           "rollno": (context) => Rollno(),
+          "grid": (context) => game(),
+          "post": (context) => post(),
+          "preveiw":(context) => preveiw(),
+          "marketPlace":(context) => Home(),
         },
       ),
     );
@@ -79,13 +89,25 @@ class _DivyamState extends State<Divyam> {
                   ),
                   child: Text("Signup"),
                 ),
-              )
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed("grid");
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: themeProvoder.getPrimaryColor,
+                    border: Border.all(color: Colors.black26),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text("grid"),
+                ),
+              ),
             ],
           ),
         ),
       ),
       color: themeProvoder.getPrimaryColor,
-      
     );
   }
 }

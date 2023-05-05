@@ -19,7 +19,6 @@ class _AppOpenState extends State<AppOpen> {
     // TODO: implement initState
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     // final themeProvider = Provider.of<ThemeProvider>(context);
