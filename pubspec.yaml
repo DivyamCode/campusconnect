@@ -80,6 +80,7 @@ flutter:
     - family: Roboto
       fonts:
         - asset: fonts/Roboto-Italic.ttf
+        - asset: fonts/Roboto-Medium.ttf
   #         style: italic
     - family: Trajan Pro
       fonts:

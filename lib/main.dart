@@ -14,6 +14,8 @@ import 'package:campusconnect/screen/grid.dart';
 //  import 'package:screen/screen.dart';
 import 'package:campusconnect/provider/themeprovider.dart';
 
+import 'screen/textPost.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -43,6 +45,7 @@ class MyApp extends StatelessWidget {
           "sign": (context) => harshit(),
           "signin": (context) => aman(),
           "signup": (context) => Signup(),
+          "TextPost": (context) => TextPost(),
           "rollno": (context) => Rollno(),
           "grid": (context) => game(),
           "post": (context) => post(),
@@ -65,6 +68,7 @@ class _DivyamState extends State<Divyam> {
   @override
   Widget build(BuildContext context) {
     final themeProvoder = Provider.of<ThemeProvider>(context);
+    themeProvoder.init();
 
     return Material(
       child: Center(
@@ -89,20 +93,7 @@ class _DivyamState extends State<Divyam> {
                   ),
                   child: Text("Signup"),
                 ),
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed("grid");
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: themeProvoder.getPrimaryColor,
-                    border: Border.all(color: Colors.black26),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Text("grid"),
-                ),
-              ),
+              )
             ],
           ),
         ),
