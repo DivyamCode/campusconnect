@@ -15,9 +15,7 @@ class ThemeProvider with ChangeNotifier {
     }
   }
 
-  void init(){
-
-  }
+  void init() {}
 
   List<Color> _primaryColor = [Colors.blue, Colors.green];
   List<Color> _secondaryColor = [Colors.black, Colors.white];
@@ -26,12 +24,14 @@ class ThemeProvider with ChangeNotifier {
   List<Color> _childcolor = [Colors.blue, Colors.white];
   List<Color> _titlecolor = [Colors.blue, Colors.white];
   List<Color> _iconcolor = [Colors.black, Colors.black];
+  List<Color> _backgroundcolor = [Colors.white, Colors.white];
 
-  Color get getPrimaryColor => _primaryColor[getColorIndex];
-  Color get getSecondaryColor => _secondaryColor[getColorIndex];
-  Color get getTextColor => _textcolor[getColorIndex];
-  Color get getTypeColor => _typecolor[getColorIndex];
-  Color get getchildcolor => _childcolor[getColorIndex];
-  Color get gettitlecolor => _titlecolor[getColorIndex];
-  Color get geticoncolor => _iconcolor[getColorIndex];
+  Color get getPrimaryColor => _primaryColor[getColorIndex()];
+  Color get getSecondaryColor => _secondaryColor[getColorIndex()];
+  Color get getTextColor => _textcolor[getColorIndex()];
+  Color get getTypeColor => _typecolor[getColorIndex()];
+  Color get getchildcolor => _childcolor[getColorIndex()];
+  Color get gettitlecolor => _titlecolor[getColorIndex()];
+  Color get geticoncolor => _iconcolor[getColorIndex()];
+  Color get getbackgroundcolor => _backgroundcolor[getColorIndex()];
 }
