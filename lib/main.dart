@@ -93,7 +93,20 @@ class _DivyamState extends State<Divyam> {
                   ),
                   child: Text("Signup"),
                 ),
-              )
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed("TextPost");
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: themeProvoder.getPrimaryColor,
+                    border: Border.all(color: Colors.black26),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text("TextPost"),
+                ),
+              ),
             ],
           ),
         ),

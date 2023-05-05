@@ -41,10 +41,12 @@ class _TextPostState extends State<TextPost> {
         child: Container(
           padding: EdgeInsets.only(left: 16, right: 16),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 children: [
+                  //content area
+
                   Container(
                     margin: EdgeInsets.only(top: 23.5),
                     padding: EdgeInsets.all(8),
@@ -78,16 +80,6 @@ class _TextPostState extends State<TextPost> {
                       ],
                     ),
                   ),
-                ],
-              ),
-
-
-
-
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  //content area
 
                   Container(
                     margin: EdgeInsets.only(top: 32),
@@ -113,40 +105,39 @@ class _TextPostState extends State<TextPost> {
                   ),
 
                   //text and continue button
-
-                  Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Color(0xFFBCBCBC)),
-                        ),
-                        margin: EdgeInsets.only(bottom: 20),
-                        padding: EdgeInsets.all(8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Color(0xFFBCBCBC)),
+                    ),
+                    margin: EdgeInsets.only(bottom: 20),
+                    padding: EdgeInsets.all(8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
                           children: [
-                            Row(
-                              children: [
-                                Icon(Icons.format_align_left),
-                                Text(
-                                  "Text",
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto-Medium',
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 13.0,
-                                    color: Color(0xFF131313),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            InkWell(
-                              child: Icon(Icons.keyboard_arrow_up),
+                            Icon(Icons.format_align_left),
+                            Text(
+                              "Text",
+                              style: TextStyle(
+                                fontFamily: 'Roboto-Medium',
+                                fontWeight: FontWeight.w400,
+                                fontSize: 13.0,
+                                color: Color(0xFF131313),
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                        InkWell(
+                          child: Icon(Icons.keyboard_arrow_up),
+                        ),
+                      ],
+                    ),
                   ),
                   Container(
                     margin: EdgeInsets.only(bottom: 10),
