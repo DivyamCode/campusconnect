@@ -1,6 +1,8 @@
 import 'package:campusconnect/provider/themeprovider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../provider/themeprovider.dart';
 import '../widget/button.dart';
 
 class Signup extends StatefulWidget {
@@ -20,8 +22,9 @@ class _SignupState extends State<Signup> {
   _signup(){}
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: themeProvider.getbackgroundcolor,
       body: SafeArea(
         child: Center(
           child: Container(
@@ -41,7 +44,7 @@ class _SignupState extends State<Signup> {
                     color: Colors.black26,
                   ),
                 ),
-                const SizedBox(height: 10.0),
+                const SizedBox(height: 40.0),
                 const Text(
                   "Enter your credentials to continue",
                   style: TextStyle(

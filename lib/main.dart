@@ -9,6 +9,8 @@ import 'package:provider/provider.dart';
 // import 'package:screen/screen.dart';
 import 'package:campusconnect/provider/themeprovider.dart';
 
+import 'screen/textPost.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -37,6 +39,7 @@ class MyApp extends StatelessWidget {
           "Welcome": (context) => dhairya(),
           "sign": (context) => harshit(),
           "signup": (context) => Signup(),
+          "TextPost": (context) => TextPost(),
           "rollno": (context) => Rollno(),
           "marketPlace":(context) => Home(),
         },
@@ -56,6 +59,7 @@ class _DivyamState extends State<Divyam> {
   @override
   Widget build(BuildContext context) {
     final themeProvoder = Provider.of<ThemeProvider>(context);
+    themeProvoder.init();
 
     return Material(
       child: Center(
@@ -80,7 +84,20 @@ class _DivyamState extends State<Divyam> {
                   ),
                   child: Text("Signup"),
                 ),
-              )
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed("TextPost");
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: themeProvoder.getPrimaryColor,
+                    border: Border.all(color: Colors.black26),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text("TextPost"),
+                ),
+              ),
             ],
           ),
         ),

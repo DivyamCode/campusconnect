@@ -43,7 +43,7 @@ class _dhairyaState extends State<dhairya> {
             ),
           ),
            Container(
-            padding:EdgeInsets.only(top: 600),
+            padding:EdgeInsets.only(top: 500),
              child: Column(
               children: [Text(
               "Welcome to destiny",

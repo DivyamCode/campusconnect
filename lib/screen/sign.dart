@@ -39,7 +39,7 @@ class _harshitState extends State<harshit> {
         ),
         Container(
             
-            padding: EdgeInsets.only(top: 450,left: 50,right: 20,bottom: 30),
+            padding: EdgeInsets.only(top: 350,left: 50,right: 20,bottom: 30),
             child: Column(
               children: [
                 
