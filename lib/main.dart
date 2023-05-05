@@ -1,5 +1,6 @@
 import 'package:campusconnect/screen/Welcome.dart';
 import 'package:campusconnect/screen/grid.dart';
+import 'package:campusconnect/screen/homescreen.dart';
 import 'package:campusconnect/screen/onboarding.dart';
 import 'package:campusconnect/screen/rollno.dart';
 import 'package:campusconnect/screen/sign.dart';
@@ -51,6 +52,8 @@ class MyApp extends StatelessWidget {
           "post": (context) => post(),
           "preveiw":(context) => preveiw(),
           "marketPlace":(context) => Home(),
+          "homeScreen":(context) => HomeScreen(),
+
         },
       ),
     );
@@ -107,6 +110,20 @@ class _DivyamState extends State<Divyam> {
                   child: Text("TextPost"),
                 ),
               ),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed("homeScreen");
+                },
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: themeProvoder.getPrimaryColor,
+                    border: Border.all(color: Colors.black26),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text("HomeScreen"),
+                ),
+              )
             ],
           ),
         ),
