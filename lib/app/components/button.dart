@@ -1,4 +1,5 @@
 
+import 'package:campusconnect/app/components/text.dart';
 import 'package:flutter/material.dart';
 
 class Buttons {
@@ -8,7 +9,7 @@ class Buttons {
 
   Buttons(this.buttonName, this.buttonColor, this.textColor, this.width , this.height);
 
-  Widget get_button(){
+  Widget getButton(){
     return  Container(
         width: width,
         height: height,
@@ -30,10 +31,12 @@ class Buttons {
 // ignore: must_be_immutable
 class PrimaryButton extends StatelessWidget {
   Function function;
-    String labelText;
+  String labelText;
+  Color? background;
   PrimaryButton({
     super.key,required this.function,
     required this.labelText,
+    this.background
   });
 
   @override
@@ -45,20 +48,13 @@ class PrimaryButton extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        // color: ThemeProvider.getPrimaryColor,
-        color: Colors.green.shade400,
-        border: Border.all(color: Colors.black26),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Text(
-        labelText,
-        style: TextStyle(
-          fontSize: 20,
-          color: Colors.black87,
+        decoration: BoxDecoration(
+          color:background ?? const Color.fromARGB(255, 97, 151, 100),
+          // border: Border.all(),
+          borderRadius: BorderRadius.circular(15),
         ),
-        ),
-      ),
-    );
+        child: TextWidget(color:Colors.white, size:20, text:labelText, weight:FontWeight.w500)
+
+    ));
   }
 }

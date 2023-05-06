@@ -64,6 +64,7 @@ flutter:
   
   assets:
     - images/
+    - assets/logo/
 
 
 flutter_native_splash:

@@ -3,4 +3,5 @@ class AppRoutes {
    static const initial = "/initial";
    static const signup = "/signup";
    static const login = "/login";
+   
 }

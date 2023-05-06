@@ -1,4 +1,5 @@
 import 'package:campusconnect/app/common/routes/routes.dart';
+import 'package:campusconnect/app/pages/home/index.dart';
 import 'package:campusconnect/app/pages/login/index.dart';
 import 'package:campusconnect/app/pages/onboarding/index.dart';
 import 'package:campusconnect/app/pages/signup/index.dart';
@@ -26,6 +27,11 @@ class AppPages {
         name:AppRoutes.login, 
         page:() =>LoginView(),
         binding: LoginBinding()
+      ),
+      GetPage(
+        name:AppRoutes.home, 
+        page:() =>MainHomeView(),
+        binding:MainHomeBinding()
       ),
       
    ];

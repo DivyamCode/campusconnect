@@ -1,12 +1,11 @@
+import 'package:campusconnect/app/common/function/commonfunction.dart';
 import 'package:campusconnect/app/common/routes/routes.dart';
 import 'package:campusconnect/app/components/button.dart';
 import 'package:campusconnect/app/pages/onboarding/index.dart';
 import 'package:campusconnect/app/theme/hex.dart';
 import 'package:campusconnect/app/provider/refresh.dart';
-import 'package:campusconnect/app/provider/themeprovider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
@@ -78,7 +77,7 @@ class OnBoardingView extends GetView<OnboardingController> {
   final List<String> introductionTexts = ["Discover the charities of top philanthropists",
     "Support the campaigns you are passionate about." ,
     "Earn the points to be recognized by charities, featured funders and philanthropists!",
-    "Make a commitment to lifelong giving and become a philanthropist."];
+    "Feel free to login and signup.your data privacy is our first privacy"];
 
   // there was no images in figma so i used these colors
   final List<String> images = ["images/ob1.jpg" , "images/ob2.jpg" ,"images/ob3.jpg", "images/ob4.jpg"];
@@ -86,6 +85,7 @@ class OnBoardingView extends GetView<OnboardingController> {
   @override
   Widget build(BuildContext context) {
     final refreshProvider = Provider.of<RefreshProvider>(context);
+    controller.oneTimeHit();
     return Scaffold(
         body: Stack(children: <Widget>[
             Container(height: 609,
@@ -101,19 +101,22 @@ class OnBoardingView extends GetView<OnboardingController> {
             ) ,
             // topText(),
             Container(alignment: Alignment.topCenter,
-              margin:const EdgeInsets.only(top: 500),
+              // margin:EdgeInsets.only(top: 500),
+              margin: EdgeInsets.only(top: CommonFunctions.screenHeight(context)/1.6),
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
+              // height: MediaQuery.of(context).size.height,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0) ,topRight: Radius.circular(30.0)),
                 color: Colors.white,
               ),
 
-              child: Stack(alignment: Alignment.topCenter,
+              // child: Stack(alignment: Alignment.topCenter,
+              child: Column(//alignment: Alignment.topCenter,
                 children: <Widget>[
                   get_introduction_texts(),
                   get_dot_indicator(),
-                  Container(margin:const EdgeInsets.only(top: 192.0, left: 35.0 ,right: 35.0 ,bottom: 70.0),
+                  const SizedBox(height: 15,),
+                  Container(margin:const EdgeInsets.only(left: 35.0 ,right: 35.0),//top: 192.0, 
                      child: getButton(refreshProvider: refreshProvider),
                   )
 
@@ -242,15 +245,12 @@ class OnBoardingView extends GetView<OnboardingController> {
 
 
   Widget get_dot_indicator(){
-    return Container(
-      margin: const EdgeInsets.only(top: 149.0),
-      child: DotsIndicator(
-        dotsCount: introductionTexts.length,
-        position: controller.dotIndicatorIndex + 0.0,
-        decorator:  DotsDecorator(
-          color: Hexcolor("#D9D9D9"), // Inactive color
-          activeColor: Hexcolor("#2F706D"),
-        ),
+    return DotsIndicator(
+      dotsCount: introductionTexts.length,
+      position: controller.dotIndicatorIndex + 0.0,
+      decorator:  DotsDecorator(
+        color: Hexcolor("#D9D9D9"), // Inactive color
+        activeColor: Hexcolor("#2F706D"),
       ),
     );
   }
@@ -263,7 +263,7 @@ class OnBoardingView extends GetView<OnboardingController> {
   Widget getButton({required RefreshProvider refreshProvider}){
     if(controller.dotIndicatorIndex == 0) {
       return  InkWell(
-        child: Buttons("Next", Hexcolor("#2F706D"), Colors.white, 320,  50).get_button(),
+        child: Buttons("Next", Hexcolor("#2F706D"), Colors.white, 320,  50).getButton(),
         onTap: () {
             controller.dotIndicatorIndex ++;
             refreshProvider.refresh();
@@ -279,7 +279,7 @@ class OnBoardingView extends GetView<OnboardingController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               InkWell(
-                child: Buttons("Previous",  Hexcolor("#E6E6E6"), Colors.black , 150 ,50).get_button(),
+                child: Buttons("Previous",  Hexcolor("#E6E6E6"), Colors.black , 150 ,50).getButton(),
                 onTap: (){
                   // setState(() {
                     controller.dotIndicatorIndex--;
@@ -289,7 +289,7 @@ class OnBoardingView extends GetView<OnboardingController> {
               ),
               const SizedBox(width: 20,),
               InkWell(
-                child: Buttons("next", Hexcolor("#2F706D"), Colors.white , 150 ,50).get_button(),
+                child: Buttons("next", Hexcolor("#2F706D"), Colors.white , 150 ,50).getButton(),
                 onTap: (){
                   // setState(() {
                     controller.dotIndicatorIndex++;
@@ -304,12 +304,22 @@ class OnBoardingView extends GetView<OnboardingController> {
       );
     }
     else {
-      return InkWell(
-        child: Buttons("Login/Signup", Hexcolor("#2F706D"), Colors.white , 320 ,50).get_button(),
-        onTap: () {
-          Get.toNamed(AppRoutes.signup);
-          // Navigator.push(context, MaterialPageRoute(builder: (context)=> const OnBoarding_Screen_Page()));
-        },
+      return Column(
+        children: [
+          InkWell(
+            child: Buttons("Signup", Hexcolor("#2F706D"), Colors.white , 320 ,50).getButton(),
+            onTap: () {
+              Get.toNamed(AppRoutes.signup);
+            },
+          ),
+          const SizedBox(height: 15,),
+          InkWell(
+            child: Buttons("Login", Hexcolor("#2F706D"), Colors.white , 320 ,50).getButton(),
+            onTap: () {
+              Get.toNamed(AppRoutes.login);
+             },
+          ),
+        ],
       );
     }
   }
