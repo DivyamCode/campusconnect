@@ -12,14 +12,21 @@ class OnboardingController extends GetxController {
       if(run){
          SharedKeyPair preferences = SharedKeyPair();
          preferences.getString("authToken");
-         final isLogged =await preferences.getBool("logged");
-         if(isLogged==null){return;}
-         if(isLogged){
-           Get.toNamed(AppRoutes.home);
-         }
 
-        run=false;
-      }
+         final waitCheck =await preferences.getBool("setwaiting");
+         if(waitCheck!=null){
+            if(waitCheck==true){
+               Get.toNamed(AppRoutes.waiting);
+               return;
+            }
+         }
+         final isLogged =await preferences.getBool("logged");
+            if(isLogged==null){return;}
+            if(isLogged){
+              Get.toNamed(AppRoutes.home);
+            }
+          run=false;
+        }
    }
    
 }

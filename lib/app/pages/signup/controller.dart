@@ -15,8 +15,18 @@ class SignupController extends GetxController {
 
   void signup(ThemeProvider themeProvider) async {
     final api = NetworkApi(dioClient: DioClient(Dio()));
-    if (state.usernameController.text.isEmpty) {
-      CommonFunctions.showAlert("username cannot be empty",
+    if (state.fullnameController.text.isEmpty) {
+      CommonFunctions.showAlert("fullname cannot be empty",
+          color: themeProvider.getAlertColor);
+      return;
+    }
+    // if (state.usernameController.text.isEmpty) {
+    //   CommonFunctions.showAlert("username cannot be empty",
+    //       color: themeProvider.getAlertColor);
+    //   return;
+    // }
+    if (state.erpController.text.isEmpty) {
+      CommonFunctions.showAlert("erp cannot be empty",
           color: themeProvider.getAlertColor);
       return;
     }
@@ -48,16 +58,19 @@ class SignupController extends GetxController {
 
     try {
       final fp = await api.post(data: {
+        "fullname":state.fullnameController.text,
         "username": state.usernameController.text,
         "email": state.emailController.text,
         "password": state.passwordController.text,
         "rollno": state.rollnoController.text,
+        "erpid":state.erpController.text
       }, url: Endpoints.registerUser);
       if (fp.data['success'] == true) {
         SharedKeyPair preferences = SharedKeyPair();
         await preferences.setString("authToken", fp.data['token']);
         await preferences.setBool("logged",true);
-        Get.offAndToNamed(AppRoutes.home);
+        await preferences.setBool("setwaiting",true); ///for waiting for approval
+        Get.offAndToNamed(AppRoutes.waiting);
       }
     } on DioError catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();

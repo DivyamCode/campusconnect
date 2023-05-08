@@ -1,5 +1,6 @@
 import 'package:campusconnect/app/components/text.dart';
 import 'package:campusconnect/app/provider/themeprovider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -44,6 +45,80 @@ class DivBottomNavBar extends StatelessWidget {
         const SizedBox(height:3,),
         TextWidget(color:color, size:12, text:label, weight:FontWeight.w200)
       ],),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+class AnimatedBottomNavBar extends StatelessWidget {
+  const AnimatedBottomNavBar({
+    super.key,
+    required this.showBtmAppBr,
+    required this.onClick
+  });
+
+  final bool showBtmAppBr;
+  final Function onClick;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: const Duration(
+        milliseconds: 800,
+      ),
+      curve: Curves.easeInOutSine,
+      height: showBtmAppBr ? 70 : 0,
+      child: BottomAppBar(
+        notchMargin: 8.0,
+        shape: const CircularNotchedRectangle(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () {
+                onClick(0);
+              },
+              icon: const Icon(
+                // Icons.home_outlined,
+                CupertinoIcons.home
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                onClick(1);
+              },
+              icon: const Icon(
+                CupertinoIcons.heart,
+              ),
+            ),
+            const SizedBox(
+              width: 50,
+            ),
+            IconButton(
+              onPressed: () {
+                onClick(2);
+              },
+              icon: const Icon(
+                CupertinoIcons.cart,
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                onClick(3);
+              },
+              icon: const Icon(
+                CupertinoIcons.profile_circled,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

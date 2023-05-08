@@ -24,12 +24,16 @@ class SignupView extends GetView<SignupController> {
               const SizedBox(height: 10.0),
               TextWidget(color:Colors.black87, size:16, text:"Please provide accurate information ,it will be reviewed by coordinator", weight:FontWeight.w400),
               const SizedBox(height: 20.0),
-              TextWidget(color:themeProvider.getlabelInputColor , size:19, text:"Username", weight:FontWeight.w500),
-              input(themeProvider,"please enter username",controller.state.usernameController),
+              TextWidget(color:themeProvider.getlabelInputColor , size:19, text:"Fullname", weight:FontWeight.w500),
+              input(themeProvider,"please enter fullname",controller.state.fullnameController,TextInputType.name),
+              // TextWidget(color:themeProvider.getlabelInputColor , size:19, text:"Username", weight:FontWeight.w500),
+              // input(themeProvider,"please enter username",controller.state.usernameController),
+              TextWidget(color:themeProvider.getlabelInputColor , size:19, text:"ErpId", weight:FontWeight.w500),
+              input(themeProvider,"please enter ERPID",controller.state.erpController,TextInputType.number),
               TextWidget(color:themeProvider.getlabelInputColor,size:19, text:"Roll no", weight:FontWeight.w500),
-              input(themeProvider,"please enter rollno",controller.state.rollnoController),
+              input(themeProvider,"please enter rollno",controller.state.rollnoController,TextInputType.number),
               TextWidget(color:themeProvider.getlabelInputColor,size:19, text:"Email", weight:FontWeight.w500),
-              input(themeProvider,"please enter email",controller.state.emailController),
+              input(themeProvider,"please enter email",controller.state.emailController,TextInputType.emailAddress),
               TextWidget(color:themeProvider.getlabelInputColor,size:19, text:"Password", weight:FontWeight.w500),
               passInput(themeProvider,"please enter password", controller.state.passwordController,controller),
               TextWidget(color:themeProvider.getlabelInputColor,size:19, text:"Confirm password", weight:FontWeight.w500),
@@ -57,7 +61,7 @@ class SignupView extends GetView<SignupController> {
     );
   }
 
-  Container input(ThemeProvider themeProvider,String hintText,TextEditingController controller) {
+  Container input(ThemeProvider themeProvider,String hintText,TextEditingController controller,TextInputType type) {
     return Container(
       padding:const EdgeInsets.only(left: 10,right: 10),
       margin: const EdgeInsets.only(bottom: 10,top: 10),
@@ -66,6 +70,7 @@ class SignupView extends GetView<SignupController> {
         border: Border.all(color:themeProvider.gettitlecolor)
       ),
       child: TextField(
+        keyboardType: type,
         controller:controller,
         decoration:InputDecoration(
           hintText:hintText,

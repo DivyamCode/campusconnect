@@ -11,8 +11,11 @@ class AppColor {
     List<Color> iconcolor = [Colors.black, Colors.black];
     List<Color> backgroundcolor = [Colors.white, Colors.white];
     List<Color> alertColor = [Colors.lightBlue,Colors.blue];
-    List<Color> navBarGreen = [Color(0xff53B175),Color(0xff53B175)];
-    List<Color> dPrimary =[Color(0xff181725),Color(0xff181725)];
+    List<Color> navBarGreen = [const Color(0xff53B175),const Color(0xff53B175)];
+    List<Color> dPrimary =[const Color(0xff181725),const Color(0xff181725)];
+    List<Color> dgrey = [const Color(0xff7C7C7C),const Color(0xff7C7C7C)];
+    List<Color> dividerColor = [const Color(0xffE2E2E2),const Color(0xffE2E2E2)];
+    List<Color> buttonColor2 = [const Color(0xffF2F3F2),const Color(0xffF2F3F2)];
 
 
 

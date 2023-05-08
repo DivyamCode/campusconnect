@@ -27,7 +27,8 @@ class MyApp extends StatelessWidget {
         return MultiProvider(
             providers: [
               ChangeNotifierProvider(create: (context) =>ThemeProvider(),),
-              ChangeNotifierProvider(create: (context) => RefreshProvider(),)
+              ChangeNotifierProvider(create: (context) => RefreshProvider(),),
+              ChangeNotifierProvider(create: (context) => ScrollProvider(),)
             ],
             child: GetMaterialApp(
               debugShowCheckedModeBanner:false,

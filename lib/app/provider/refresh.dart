@@ -5,3 +5,17 @@ class RefreshProvider with ChangeNotifier {
       notifyListeners();
    }
 }
+
+
+
+class ScrollProvider with ChangeNotifier {
+   bool _showBottom = true;
+
+   bool get showBottom => _showBottom;
+
+   void change(bool val){
+      _showBottom = val;
+      notifyListeners();
+   }
+
+}

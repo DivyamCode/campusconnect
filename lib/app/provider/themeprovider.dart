@@ -31,6 +31,9 @@ class ThemeProvider with ChangeNotifier {
     Color get getAlertColor => color.alertColor[getColorIndex()];
     Color get getNavBarGreen => color.navBarGreen[getColorIndex()];
     Color get getDPrimary => color.dPrimary[getColorIndex()];
+    Color get getDGrey => color.dgrey[getColorIndex()];
+    Color get getDividerColor => color.dividerColor[getColorIndex()];
+    Color get getButtonColor2 => color.buttonColor2[getColorIndex()];
 
 
 }
