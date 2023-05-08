@@ -1,17 +1,19 @@
-import 'package:campusconnect/provider/themeprovider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+import '../provider/themeprovider.dart';
+
+class HomeScreenText extends StatefulWidget {
+  const HomeScreenText({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreenText> createState() => _HomeScreenTextState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenTextState extends State<HomeScreenText> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -30,13 +32,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       decoration: BoxDecoration(
                         color: Color(0xFFB9F0D5),
-                        borderRadius: BorderRadius.circular(38),
+                        borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: Color(0xFF81B29A)),
                       ),
-                      padding: EdgeInsets.fromLTRB(12, 6, 12, 6),
+                      padding: EdgeInsets.fromLTRB(2, 4, 5, 4),
                       child: Row(
                         children: [
-                          Icon(Icons.circle),
+                          Icon(CupertinoIcons.arrow_right_arrow_left_circle_fill),
                           SizedBox(width: 4),
                           Text(
                             "All communities",
@@ -62,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.fromLTRB(20, 9, 70, 9),
                       child: Row(
                         children: [
-                          Icon(Icons.circle),
+                          Icon(CupertinoIcons.person,),
                           SizedBox(width: 12),
                           Text("Dhairya"),
                         ],
@@ -90,15 +92,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              Image(image: AssetImage("images/Screenshot.png")),
+              
               Container(
                 margin: EdgeInsets.only(top: 12),
                 padding: const EdgeInsets.only(left: 17, right: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Heading
                     Text(
-                      "Live webinar on blockchain technology",
+                      "IEEE registration begins",
                       style: TextStyle(
                         fontFamily: 'Roboto-Medium',
                         fontSize: 13.0,
@@ -106,18 +109,28 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Color(0xFF131313),
                       ),
                     ),
-                    SizedBox(height: 4),
-                    Text(
-                      "We are excited to announce the official webinar with Jetso Analin on Blockchain technology.",
-                      style: TextStyle(
-                        fontFamily: 'Roboto-Medium',
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF131313),
+                    SizedBox(height: 13),
+                    // Content
+                    Container(
+                      child: Text(
+                        "Dear students, the official registrations for the IEEE core committee have begun.\n"
+                        "\n"
+                        "IEEE, IIT Madras has played an influential role over the years, inculcating the essence of technology and innovation through various events, workshops, activities, and festivals.\n"
+                        "\n"
+                        "We invite students from all the branches to be a part of the core team of 2022\n"
+                        "\n"
+                        "🚀 Selection process: \nApplication to be sent \nGroup discussion \nFinal Interview \n",
+                        style: TextStyle(
+                          fontFamily: 'Roboto-Medium',
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF393939),
+                        ),
                       ),
                     ),
+
                     Container(
-                      padding: EdgeInsets.fromLTRB(16, 8, 164, 8),
+                      padding: EdgeInsets.fromLTRB(16, 8, 140, 8),
                       margin: EdgeInsets.only(top: 12),
                       child: Row(children: [
                         Row(
@@ -147,9 +160,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(Icons.thumb_up),
-                    Icon(Icons.mode_comment),
-                    Icon(Icons.share),
+                    Icon(CupertinoIcons.hand_thumbsup),
+                    Icon(CupertinoIcons.bubble_right),
+                    Icon(CupertinoIcons.share),
                   ],
                 ),
               ),
