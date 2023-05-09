@@ -45,34 +45,3 @@ class MainHomeView extends GetView<MainHomeController>{
    
 }
 
-
-
-
-class DivPageTwo extends StatelessWidget {
-const DivPageTwo({ Key? key }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context){
-    return Container(
-      child: Column(children: [
-        // Text("hi")
-      ],),
-    );
-  }
-}
-
-
-// class DivPageOne extends StatelessWidget {
-// const DivPageOne({ Key? key }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context){
-//     return Container(
-//       child: Column(children: [
-//         // Text("hi")
-//       ],),
-//     );
-//   }
-// }
-
-

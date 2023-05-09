@@ -2,6 +2,7 @@ import 'package:campusconnect/app/pages/home/index.dart';
 import 'package:campusconnect/app/pages/home/view/page_four.dart';
 import 'package:campusconnect/app/pages/home/view/page_one.dart';
 import 'package:campusconnect/app/pages/home/view/page_three.dart';
+import 'package:campusconnect/app/pages/home/view/page_two.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,10 +21,10 @@ class MainHomeController extends GetxController {
     final pageController = PageController(initialPage: 0);
 
     final List<Widget> bottomBarPages = [
-        DivPageOne(),
-        DivPageTwo(),
-        DivPageThree(),
-        DivPageFour()
+        const DivPageOne(),
+        DxP(),
+        const DivPageThree(),
+        const DivPageFour()
     ];
 
      handleIndexChanged(int i){
@@ -44,6 +45,9 @@ class MainHomeController extends GetxController {
     
 
     // final showBtmAppBr = true.obs;
+
+
+    String exp = "experiment";
 
     
 }

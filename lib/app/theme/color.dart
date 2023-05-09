@@ -15,8 +15,6 @@ class AppColor {
     List<Color> dPrimary =[const Color(0xff181725),const Color(0xff181725)];
     List<Color> dgrey = [const Color(0xff7C7C7C),const Color(0xff7C7C7C)];
     List<Color> dividerColor = [const Color(0xffE2E2E2),const Color(0xffE2E2E2)];
-    List<Color> buttonColor2 = [const Color(0xffF2F3F2),const Color(0xffF2F3F2)];
-
-
+    List<Color> buttonColor2 = [const Color.fromARGB(255, 226, 238, 226),const Color(0xffF2F3F2)];
 
 }
