@@ -2,7 +2,6 @@ import 'package:campusconnect/app/common/function/commonfunction.dart';
 import 'package:campusconnect/app/components/bottonnav.dart';
 import 'package:campusconnect/app/pages/home/index.dart';
 import 'package:campusconnect/app/provider/refresh.dart';
-import 'package:campusconnect/app/provider/themeprovider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';

@@ -11,6 +11,7 @@ class MainHomeController extends GetxController {
     MainHomeState state = MainHomeState();
 
     final bottomIndex = 0.obs;
+    final miniIndex = 0.obs;
 
     void changeBottomIndex(int index){
       //  bottomIndex.value = index;
@@ -18,18 +19,40 @@ class MainHomeController extends GetxController {
        handleIndexChanged(index);
     }
 
+    void changeMiniIndex(int index){
+      //  bottomIndex.value = index;
+
+       handleIndexChangedMini(index);
+    }
+
     final pageController = PageController(initialPage: 0);
+    final tabMultiPage = PageController(initialPage: 0);
 
     final List<Widget> bottomBarPages = [
         const DivPageOne(),
-        DxP(),
+        DivPageTwo(),
         const DivPageThree(),
         const DivPageFour()
+    ];
+    final List<Widget> tabMultiPageList = [
+        ChatMiniTab(),
+        PostMiniTab(),
+        ExploreMiniTab(),
+        EventMiniTab()
     ];
 
      handleIndexChanged(int i){
         
         pageController.animateToPage( i,
+        duration: const Duration(milliseconds: 600),
+        curve: Curves.easeIn,
+      );
+      bottomIndex.value = i;
+    }
+
+    handleIndexChangedMini(int i){
+        
+        tabMultiPage.animateToPage( i,
         duration: const Duration(milliseconds: 600),
         curve: Curves.easeIn,
       );
