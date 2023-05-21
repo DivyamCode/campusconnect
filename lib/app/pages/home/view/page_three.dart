@@ -73,7 +73,7 @@ class _DivPageThreeState extends State<DivPageThree> {
         child: SingleChildScrollView(
           controller: _scrollController,
           child: Container(
-            padding:const EdgeInsets.only(left: 24.0,right: 24.0,top: 15),
+            padding:const EdgeInsets.only(left:17,right:17,top: 15),
             child: Column(
               children: [
                 const WelcomeBar(),

@@ -58,3 +58,38 @@ class PrimaryButton extends StatelessWidget {
     ));
   }
 }
+
+
+class SecondaryButton extends StatelessWidget {
+  Function function;
+  String labelText;
+  Color? background;
+  double? textSize;
+  double? radius;
+  SecondaryButton({
+    super.key,required this.function,
+    required this.labelText,
+    this.background,
+    this.textSize,
+    this.radius
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        function();
+      },
+      child: Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color:background ?? const Color.fromARGB(255, 97, 151, 100),
+          // border: Border.all(),
+          borderRadius: BorderRadius.circular(radius??15),
+        ),
+        child: TextWidget(color:Colors.white, size:textSize?? 20, text:labelText, weight:FontWeight.w500)
+
+    ));
+  }
+}

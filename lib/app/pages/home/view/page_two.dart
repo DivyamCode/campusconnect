@@ -1,34 +1,81 @@
 import 'package:campusconnect/app/common/function/commonfunction.dart';
 import 'package:campusconnect/app/components/text.dart';
-import 'package:campusconnect/app/pages/home/controller/home.dart';
+import 'package:campusconnect/app/pages/home/view/tab/mini_explore.dart';
+import 'package:campusconnect/app/pages/home/view/tab/mini_chat.dart';
+import 'package:campusconnect/app/pages/home/view/tab/mini_event.dart';
+import 'package:campusconnect/app/pages/home/view/tab/mini_post.dart';
+import 'package:campusconnect/app/provider/refresh.dart';
 import 'package:campusconnect/app/provider/themeprovider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:reveal_on_scroll/reveal_on_scroll.dart';
 import 'package:slide_switcher/slide_switcher.dart';
 
 
-// class DxP extends GetView<MainHomeController>{
-//   @override
-//   Widget build(BuildContext context) {
-//      return Material(
-//        child: Center(
-//         child: SafeArea(child:Text(controller.exp)),
-//        ),
-//      );
-//   }
+class DivPageTwo extends StatefulWidget {
+  const DivPageTwo({ Key? key }) : super(key: key);
 
-// }
+  @override
+  _DivPageTwoState createState() => _DivPageTwoState();
+}
 
+class _DivPageTwoState extends State<DivPageTwo> {
+
+    final miniIndex = 0.obs;
 
 
-class DivPageTwo extends GetView<MainHomeController>{
+    void changeMiniIndex(int index){
+      //  bottomIndex.value = index;
+
+       handleIndexChangedMini(index);
+    }
+
+    final tabMultiPage = PageController(initialPage: 0);
+
+
+    final List<Widget> tabMultiPageList = [
+        ChatMiniTab(),
+        const PostMiniTab(),
+        ExploreMiniTab(),
+        EventMiniTab()
+    ];
+
+    final ScrollController _scrollController = ScrollController();
+  
+
+      @override
+        void initState() {
+          final scrollProvider = Provider.of<ScrollProvider>(context,listen: false);
+          _scrollController.addListener(() {
+              if (_scrollController.position.userScrollDirection ==
+                  ScrollDirection.reverse) {
+                    scrollProvider.change(false);
+              } else {
+                scrollProvider.change(true);
+              }
+            });
+            super.initState();
+     }
+
+    @override
+    void dispose() {
+      _scrollController.dispose();
+      super.dispose();
+    }
+
+
+
+    handleIndexChangedMini(int i){
+        
+        tabMultiPage.animateToPage( i,
+        duration: const Duration(milliseconds: 600),
+        curve: Curves.easeIn,
+      );
+      miniIndex.value = i;
+    }
+
   final List<int> dx = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,11,11,1,11,1,1,1,1,1,1];
-
-  // int switcherIndex1 = 0;
-
-  final ScrollController _controller = ScrollController();
 
   int index =0;
 
@@ -36,32 +83,12 @@ class DivPageTwo extends GetView<MainHomeController>{
   Widget build(BuildContext context){
     final themeProvider = Provider.of<ThemeProvider>(context);
     int i =0;
-    return SafeArea(
-      child: Container(
-        color:Colors.white54,
-        padding:const EdgeInsets.symmetric(horizontal: 15),
+    return Container(
+      color:Colors.white54,
+      padding:const EdgeInsets.only(left: 15,right: 15,top:23),
+      child: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const SizedBox(height: 40,),
-            TextWidget(color:themeProvider.getPrimaryColor, size:20, text:"Community", weight:FontWeight.w500),
-            const SizedBox(height: 10,),
-            SingleChildScrollView(scrollDirection:Axis.horizontal,
-              physics:const BouncingScrollPhysics(),
-              child: Row(children:dx.map((e) =>communityWidget(themeProvider,i++)).toList()),
-            ),
-            // Container(
-              
-            //   decoration: BoxDecoration(
-            //     color: themeProvider.getNavBarGreen,
-            //     borderRadius:BorderRadius.circular(10)
-            //   ),
-            //   child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            //      TextWidget(color:themeProvider.getPrimaryColor, size:15, text:"Community", weight:FontWeight.w500),
-            //      TextWidget(color:themeProvider.getPrimaryColor, size:15, text:"Community", weight:FontWeight.w500),
-            //      TextWidget(color:themeProvider.getPrimaryColor, size:15, text:"Community", weight:FontWeight.w500),
-            //      TextWidget(color:themeProvider.getPrimaryColor, size:15, text:"Community", weight:FontWeight.w500),
-            //   ],),
-            // ),
-
             
               const SizedBox(height: 20,),
               SingleChildScrollView(
@@ -69,12 +96,11 @@ class DivPageTwo extends GetView<MainHomeController>{
                   children: [
                     SlideSwitcher(
                       onSelect: (index) {
-                        controller.handleIndexChangedMini(index);
-                        // switcherIndex1 = index;
+                        handleIndexChangedMini(index);
+                        
                       },
-                      // onSelect: (index) => setState(() => switcherIndex1 = index),
                       containerHeight:50,
-                      containerWight: 350,
+                      containerWight: CommonFunctions.screenWidth(context)-30,
                       indents:5,
                       children: [
                         TextWidget(color:themeProvider.getPrimaryColor, size:15, text:"Chat", weight:FontWeight.w400),
@@ -85,35 +111,15 @@ class DivPageTwo extends GetView<MainHomeController>{
                       // slidersColors: [themeProvider.getNavBarGreen],
                     ),
                     const SizedBox(height: 10,),
-                    // SizedBox(height: CommonFunctions.screenHeight(context)-364,
-                    //   child: PageView(
-                    //     controller:controller.tabMultiPage,
-                    //     physics: const NeverScrollableScrollPhysics(),
-                    //     children: List.generate(
-                    //         controller.tabMultiPageList.length, (index) =>  controller.tabMultiPageList[index]),
-                    //   ),
-                    // ),
-                    ScrollToReveal.withAnimation(
-                        label: 'Scroll$index',
-                        scrollController: _controller,
-                        reflectPosition: -100,
-                        animationType: AnimationType.findInLeft,
-                        child: Container(height:30,color: Colors.red,child: Text("."),),
-                    )
-
-
-                    // const SizedBox(height: 20),
-                    // if (switcherIndex1 == 0) ...[
-                    //   SizedBox(height: CommonFunctions.screenHeight(context)-354,
-                    //     child: ListView.builder(itemBuilder: (context, index) {
-                    //        return ChatInitialTile(themeProvider: themeProvider);
-                    //     },),
-                    //   )
-                    // ]
-                    // else ...[
-                    //   Container(height: 100, width: 100, color: Colors.green,)
-                    // ],
-                    
+                    SizedBox(//height: CommonFunctions.screenHeight(context)-364,
+                      height: CommonFunctions.screenHeight(context)-160,//384,//184
+                      child: PageView(
+                        controller:tabMultiPage,
+                        physics: const NeverScrollableScrollPhysics(),
+                        children: List.generate(
+                            tabMultiPageList.length, (index) =>  tabMultiPageList[index]),
+                      ),
+                    ), 
                   ],
                 ),
               ),
@@ -121,8 +127,22 @@ class DivPageTwo extends GetView<MainHomeController>{
       ),
     );
   }
+}
 
-  Container communityWidget(ThemeProvider themeProvider,int index) {
+class CommunityScroll extends StatelessWidget {
+  const CommunityScroll({
+    super.key,
+    required this.themeProvider,
+    required this.index,
+    required this.url
+  });
+
+  final ThemeProvider themeProvider;
+  final int index;
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
       margin: const EdgeInsets.symmetric(horizontal:5),
@@ -133,94 +153,27 @@ class DivPageTwo extends GetView<MainHomeController>{
       child:Column(
         children: [    
           Container(
-            decoration: BoxDecoration(color: const Color.fromARGB(255, 165, 125, 139),borderRadius: BorderRadius.circular(50)),
+            decoration: BoxDecoration(border: Border.all(color: const Color.fromARGB(255, 165, 125, 139)),borderRadius: BorderRadius.circular(50)),
             height: 45,
             width: 45,
-            child:const Text(""),
+            child:ClipOval(
+              child: Image.network(url,errorBuilder: (context, error, stackTrace) =>const CircleAvatar(),loadingBuilder: (context, child, loadingProgress){
+                 if (loadingProgress == null) return child;
+                      return Center(
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                  loadingProgress.expectedTotalBytes!
+                              : null,
+                        ),
+                      );
+              },),
+            ),
           ),
           const SizedBox(height:10,),
           TextWidget(color:themeProvider.getPrimaryColor, size:10, text:"Community $index", weight:FontWeight.w500),
         ],
       ),
-    );
-  }
-}
-
-class ChatInitialTile extends StatelessWidget {
-  const ChatInitialTile({
-    super.key,
-    required this.themeProvider,
-  });
-
-  final ThemeProvider themeProvider;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Divider(thickness:1.5,color: themeProvider.getDividerColor,),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-          child: Row(children: [
-              Container(
-                  decoration: BoxDecoration(color: const Color.fromARGB(255, 165, 125, 139),borderRadius: BorderRadius.circular(50)),
-                  height: 45,
-                  width: 45,
-                  child:const Text(""),
-                ),
-                const SizedBox(width:10,),
-                TextWidget(color:themeProvider.getPrimaryColor, size:10, text:"Community", weight:FontWeight.w500),
-          
-          ],),
-        ),
-      ],
-    );
-  }
-}
-
-
-
-class ChatMiniTab extends GetView<MainHomeController>{
-  @override
-  Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    
-    return Container(
-       child: ListView.builder(itemBuilder: (context, index) {
-          return ChatInitialTile(themeProvider: themeProvider);
-      },),
-    );
-  }
-}
-
-
-class PostMiniTab extends GetView<MainHomeController>{
-  @override
-  Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    
-    return Container(
-       child: Text("post")
-    );
-  }
-}
-class ExploreMiniTab extends GetView<MainHomeController>{
-  @override
-  Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    
-    return Container(
-       child: Text("explore")
-    );
-  }
-}
-class EventMiniTab extends GetView<MainHomeController>{
-  @override
-  Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    
-   return Container(
-       child: Text("events")
     );
   }
 }

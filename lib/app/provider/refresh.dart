@@ -17,5 +17,14 @@ class ScrollProvider with ChangeNotifier {
       _showBottom = val;
       notifyListeners();
    }
+}
+class ScrollProvider2 with ChangeNotifier {
+   bool _showBottom = true;
 
+   bool get showBottom => _showBottom;
+
+   void change(bool val){
+      _showBottom = val;
+      notifyListeners();
+   }
 }

@@ -24,8 +24,8 @@ class _DivPageOneState extends State<DivPageOne> {
             child: Column(
               children: [
                 postTypeWidget(),
-                PostCard(),
-                PostCard(),
+                const PostCard(),
+                const PostCard(),
                 
               ],
             ),

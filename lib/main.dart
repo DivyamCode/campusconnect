@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
             providers: [
               ChangeNotifierProvider(create: (context) =>ThemeProvider(),),
               ChangeNotifierProvider(create: (context) => RefreshProvider(),),
-              ChangeNotifierProvider(create: (context) => ScrollProvider(),)
+              ChangeNotifierProvider(create: (context) => ScrollProvider(),),
+              ChangeNotifierProvider(create: (context) => ScrollProvider2(),)
             ],
             child: GetMaterialApp(
               debugShowCheckedModeBanner:false,
