@@ -14,7 +14,10 @@ class ChatMiniTab extends GetView<MainHomeController> {
     //  Provider.of<ScrollProvider2>(context);
     final themeProvider = Provider.of<ThemeProvider>(context);
 
+    controller.initState(context);
+
     return SingleChildScrollView(
+         controller: controller.scrollController,
         child: Column(
       children: controller.imageCommunity
           .map((e) => ChatInitialTile(themeProvider: themeProvider,url: e,))

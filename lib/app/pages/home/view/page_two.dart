@@ -17,6 +17,7 @@ class DivPageTwo extends StatefulWidget {
   const DivPageTwo({ Key? key }) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _DivPageTwoState createState() => _DivPageTwoState();
 }
 
@@ -35,10 +36,10 @@ class _DivPageTwoState extends State<DivPageTwo> {
 
 
     final List<Widget> tabMultiPageList = [
-        ChatMiniTab(),
+        const ChatMiniTab(),
         const PostMiniTab(),
         ExploreMiniTab(),
-        EventMiniTab()
+        const EventMiniTab()
     ];
 
     final ScrollController _scrollController = ScrollController();
@@ -82,7 +83,7 @@ class _DivPageTwoState extends State<DivPageTwo> {
   @override
   Widget build(BuildContext context){
     final themeProvider = Provider.of<ThemeProvider>(context);
-    int i =0;
+    // int i =0;
     return Container(
       color:Colors.white54,
       padding:const EdgeInsets.only(left: 15,right: 15,top:23),
@@ -92,6 +93,7 @@ class _DivPageTwoState extends State<DivPageTwo> {
             
               const SizedBox(height: 20,),
               SingleChildScrollView(
+                // controller: _scrollController,
                 child: Column(
                   children: [
                     SlideSwitcher(

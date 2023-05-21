@@ -64,7 +64,7 @@ class _DivPageThreeState extends State<DivPageThree> {
     super.dispose();
   }
 
-  bool showBtmAppBr = true;
+  // bool showBtmAppBr = true;
 
   @override
   Widget build(BuildContext context) {

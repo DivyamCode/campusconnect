@@ -192,5 +192,68 @@ class MainHomeController extends GetxController {
     ];
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /////////////////________________CHAT_MINI_TAB_____________________________
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    ///
+    /// 
+    
+    final ScrollController scrollController = ScrollController();
+  
+
+      @override
+        void initState(BuildContext context) {
+          final scrollProvider = Provider.of<ScrollProvider>(context,listen: false);
+          scrollController.addListener(() {
+              if (scrollController.position.userScrollDirection ==
+                  ScrollDirection.reverse) {
+                    scrollProvider.change(false);
+              } else {
+                scrollProvider.change(true);
+              }
+            });
+     }
+
     
 }
